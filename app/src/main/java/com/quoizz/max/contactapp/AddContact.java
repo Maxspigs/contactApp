@@ -18,7 +18,7 @@ public class AddContact extends DialogFragment {
     @Override
     public android.app.Dialog onCreateDialog(Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
-        final View v = LayoutInflater.from(getActivity()).inflate(R.layout.new_contact, null);
+        final View v = LayoutInflater.from(getActivity()).inflate(R.layout.add_contact, null);
 
         return new AlertDialog.Builder(getActivity()).setTitle("nouveau contact secret").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override

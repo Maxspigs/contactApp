@@ -7,4 +7,5 @@
     <string name="nom_contact">Nom :</string>
     <string name="numero_contact">Numéro :</string>
     <string name="ajouter">Ajouter</string>
+    <string name="add_contact">"Entrer un nouveau contact"</string>
 </resources>

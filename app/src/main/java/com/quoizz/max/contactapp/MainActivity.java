@@ -3,7 +3,6 @@ package com.quoizz.max.contactapp;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,14 +15,14 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements IContactsSecret {
 
     private List<Contact> contacts;
-    private int index;
+    private int idx;
     private String query = "SELECT * FROM "+ DatabaseHandler.DATABASE_NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.index = 0;
+        this.idx = 0;
         this.contacts = new ArrayList<>();
 
         DatabaseHandler dbHelper = new DatabaseHandler(this);
@@ -56,9 +55,9 @@ public class MainActivity extends AppCompatActivity implements IContactsSecret {
 
     private void listContacts() {
         TextView textNom = (TextView) findViewById(R.id.textName_main);
-        textNom.setText(contacts.get(index).getNom());
+        textNom.setText(contacts.get(idx).getNom());
         TextView TextTelephone = (TextView) findViewById(R.id.textTel_main);
-        TextTelephone.setText(contacts.get(index).getNumero());
+        TextTelephone.setText(contacts.get(idx).getNumero());
     }
 
     private void passwordProtectionDialog() {
@@ -78,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements IContactsSecret {
         String statement = "INSERT INTO "+ DatabaseHandler.DATABASE_NAME+" VALUES('"+nom+"', '"+numero+"');";
         DatabaseHandler databaseHandler = new DatabaseHandler(this);
         databaseHandler.getWritableDatabase().execSQL(statement);
-        if(nom == null || numero == null){
+        if(nom.equals("") || numero.equals("")){
             Toast.makeText(this, "Erreur... vous devez entrer les deux 2 champs", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -98,17 +97,17 @@ public class MainActivity extends AppCompatActivity implements IContactsSecret {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_back:
-                if (index == 0) {
-                    index = contacts.size() - 1;
+                if (idx == 0) {
+                    idx = contacts.size() - 1;
                 }else {
-                    index--;
+                    idx--;
                 }
                 break;
             case R.id.action_next:
-                if (index == contacts.size()-1) {
-                    index = 0;
+                if (idx == contacts.size()-1) {
+                    idx = 0;
                 }else {
-                    index++;
+                    idx++;
                 }
                 break;
             default:
