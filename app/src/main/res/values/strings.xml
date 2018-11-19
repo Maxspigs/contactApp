@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Contacts</string>
+    <string name="password">Mot de passe:</string>
+    <string name="connecter">Connecter</string>
+    <string name="username">Username :</string>
+    <string name="settings">Setting</string>
+    <string name="nom_contact">Nom :</string>
+    <string name="numero_contact">Numéro :</string>
+    <string name="ajouter">Ajouter</string>
+</resources>
