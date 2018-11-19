@@ -3,6 +3,7 @@ package com.quoizz.max.contactapp;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,8 +42,9 @@ public class MainActivity extends AppCompatActivity implements IContactsSecret {
 
     @Override
     public void validatePassword(String password) {
-        if( password == "secret"){
+        if( !password.equals("toto") ){
             passwordProtectionDialog();
+            Toast.makeText(MainActivity.this, "Le mot de passe n'est pas valide. MDP = toto", Toast.LENGTH_LONG).show();
         }
     }
 

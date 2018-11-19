@@ -27,7 +27,8 @@ public class PasswordProtection extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 EditText password = (EditText) v.findViewById(R.id.DialogPasswordEdit);
-                client.validatePassword(password.getText().toString());
+                String passwordString = password.getText().toString();
+                client.validatePassword(passwordString);
             }
         }).setView(v).create();
     }
